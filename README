@@ -1,0 +1,4 @@
+Dockerfile 
+
+Holt das Nginx-Image (klein & schnell)
+Kopiert deinen HTML, CSS, JS Kram ins Verzeichnis, das Nginx nutzt
