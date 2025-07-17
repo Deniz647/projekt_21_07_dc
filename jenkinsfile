@@ -13,19 +13,5 @@ pipeline {
                 sh 'docker build -t todo-backend:latest ./backend'
             }
         }
-
-        stage('Push Frontend to ACR') {
-            steps {
-                sh 'docker tag todo-frontend:latest skyerededucation.azurecr.io/todo-frontend:latest'
-                sh 'docker push skyerededucation.azurecr.io/todo-frontend:latest'
-            }
-        }
-
-        stage('Push Backend to ACR') {
-            steps {
-                sh 'docker tag todo-backend:latest skyerededucation.azurecr.io/todo-backend:latest'
-                sh 'docker push skyerededucation.azurecr.io/todo-backend:latest'
-            }
-        }
     }
 }
