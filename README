@@ -1,4 +1,57 @@
-Dockerfile 
+Projektname: Todo App mit Docker und Jenkins
 
-Holt das Nginx-Image (klein & schnell)
-Kopiert deinen HTML, CSS, JS Kram ins Verzeichnis, das Nginx nutzt
+Inhalt:
+- Frontend mit HTML CSS JS
+- Backend mit Java Spring Boot
+- Jenkins Pipeline zum Bauen der Images
+- Docker Compose Datei auch vorhanden
+
+Schritte:
+
+1. Projektordner öffnen mit Terminal
+
+2. Images lokal bauen:
+  docker build -t todo-frontend:latest ./frontend
+  docker build -t todo-backend:latest ./backend
+
+3. Container starten:
+  docker run -d -p 3000:80 todo-frontend:latest
+  docker run -d -p 8092:8080 todo-backend:latest
+
+4. Funktion testen:
+  localhost:3000 im Browser öffnen
+  curl http://localhost:8092/tasks
+
+5. GitHub Projekt erstellt:
+  https://github.com/Deniz647/projekt_21_07_dc
+
+6. Dateien gepusht:
+  Frontend Ordner
+  Backend Ordner
+  Jenkinsfile
+  docker-compose.yml
+
+7. Jenkins Pipeline erstellt:
+  Neues Item erstellt
+  GitHub Repo eingetragen
+  Jenkinsfile erkannt
+
+8. Inhalt des Jenkinsfiles:
+  Enthält zwei Stages
+  Erste Stage baut das Frontend Image mit Docker
+  Zweite Stage baut das Backend Image mit Docker
+  Beide Builds laufen im gleichen Jenkins-Agent
+9. Jenkins Build durchgeführt:
+  Grüner Haken sichtbar
+  Logs zeigen erfolgreiche Builds
+
+10. Tests durchgeführt:
+  docker ps
+  docker logs [Container ID]
+  curl http://localhost:8092/tasks
+  Browser Test mit localhost:3000
+
+Zusatz:
+- Frontend zeigt Startseite
+- Backend gibt bei curl leere Liste zurück
+- Beide Container sichtbar in Docker Desktop
